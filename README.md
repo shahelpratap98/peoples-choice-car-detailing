@@ -31,6 +31,18 @@ Everything below is tracked with a `TODO(launch)` comment in the source.
 5. **Add the logo file** — the header currently uses a drawn SVG mark plus a wordmark (`LogoMark` / `Wordmark` in `src/components/Primitives.tsx`) that echoes the Facebook logo. Drop the real PNG into `public/` and swap it in if you want the exact original artwork.
 6. **Add an OG image** — `index.html` has the OG tags but no `og:image`.
 
+## Deploying
+
+Hosted on Vercel from `shahelpratap98/mr-sons-car-detailing` (branch `main`).
+
+Vercel auto-detects the Vite preset: build `npm run build`, output `dist`. No
+environment variables are needed — the contact form has no backend.
+
+`vercel.json` carries a catch-all rewrite to `/index.html`. This is **required**:
+the site uses `BrowserRouter`, so without it `/services`, `/about` and `/contact`
+return 404 on a direct load or a refresh. Vercel checks the filesystem before
+applying rewrites, so real assets still serve normally.
+
 ## Where things live
 
 - `src/config.ts` — every business detail (phone, email, hours, links) in one place, plus the `waLink` / `mailLink` helpers.
