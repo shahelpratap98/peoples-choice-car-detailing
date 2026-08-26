@@ -30,7 +30,7 @@ export default function FinalCTA() {
           </h2>
 
           <p className="mt-6 text-white/60 max-w-md mx-auto text-sm leading-[1.6]">
-            Message Janish with your vehicle and your suburb and you&rsquo;ll get a time and a price
+            Send through your vehicle and your suburb and you&rsquo;ll get a time and a price
             back — usually the same day. We bring the water, the power and the gear.
           </p>
 

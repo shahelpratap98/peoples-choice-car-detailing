@@ -31,7 +31,7 @@ export default function Services() {
           className="mt-8 text-white/60 max-w-lg text-base leading-[1.5]"
         >
           Book a single job or a full package. Everything below is done at your place, on your
-          driveway, with our own water and power, anywhere in {BUSINESS.region}.
+          driveway, with our own water and power.
         </motion.p>
 
         <motion.div
@@ -92,7 +92,7 @@ export default function Services() {
 
                 <a
                   href={waLink(
-                    `Hi Janish, I'm interested in ${service.title} with MR SONS. My vehicle is a `,
+                    `Hi ${BUSINESS.name}, I'm interested in ${service.title}. My vehicle is a `,
                   )}
                   target="_blank"
                   rel="noopener noreferrer"

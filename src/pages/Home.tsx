@@ -4,7 +4,6 @@ import { ArrowRight } from 'lucide-react'
 import { BUSINESS, DEFAULT_ENQUIRY, waLink } from '../config'
 import { BrandButton, SectionEyebrow, gradientStyle } from '../components/Primitives'
 import InfoStrip from '../components/InfoStrip'
-import Reviews from '../components/Reviews'
 import FinalCTA from '../components/FinalCTA'
 import { SERVICES } from '../data/services'
 
@@ -65,7 +64,7 @@ export default function Home() {
         >
           <span className="block text-white">Your car.</span>
           <span className="block animate-shiny" style={gradientStyle}>
-            Revitalized
+            Refinished.
           </span>
         </motion.h1>
 
@@ -75,9 +74,8 @@ export default function Home() {
           transition={{ duration: 0.8, delay: 0.5, ease: EASE }}
           className="mt-8 text-white/60 max-w-md text-base leading-[1.5]"
         >
-          {BUSINESS.legalName} is a mobile detailing outfit working across {BUSINESS.region}. We come
-          to your driveway with our own water and power, and we do not leave until the car looks like
-          it did in the showroom.
+          {BUSINESS.legalName} is a mobile detailing outfit. We come to your driveway with our own
+          water and power, and we do not leave until the car looks like it did in the showroom.
         </motion.p>
 
         <motion.div
@@ -237,7 +235,6 @@ export default function Home() {
         </div>
       </section>
 
-      <Reviews />
       <FinalCTA />
     </>
   )

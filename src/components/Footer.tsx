@@ -13,8 +13,8 @@ export default function Footer() {
             <Wordmark />
           </div>
           <p className="mt-5 text-sm text-white/50 leading-[1.6] max-w-xs">
-            {BUSINESS.legalName}. Mobile car detailing across {BUSINESS.region} — we bring the gear,
-            the water and the power to your driveway.
+            {BUSINESS.legalName}. Mobile car detailing — we bring the gear, the water and the
+            power to your driveway.
           </p>
         </div>
 
@@ -107,7 +107,7 @@ export default function Footer() {
           <p>
             &copy; {new Date().getFullYear()} {BUSINESS.legalName}. All rights reserved.
           </p>
-          <p>{BUSINESS.region}, New Zealand</p>
+          <p>{BUSINESS.serviceArea}</p>
         </div>
       </div>
     </footer>

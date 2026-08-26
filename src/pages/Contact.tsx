@@ -39,7 +39,7 @@ const LABELS: Record<keyof Fields, string> = {
 /** Turns the form into a plain-text message for WhatsApp or email. */
 function composeMessage(f: Fields) {
   const lines = [
-    `Hi ${BUSINESS.operator}, I'd like to book a detail with ${BUSINESS.name}.`,
+    `Hi ${BUSINESS.name}, I'd like to book a detail.`,
     '',
     `Name: ${f.name}`,
     `Phone: ${f.phone}`,
@@ -90,7 +90,7 @@ export default function Contact() {
       title: 'WhatsApp',
       detail: BUSINESS.phoneDisplay,
       note: 'Fastest — send a photo of the car and get a quote back.',
-      href: waLink(`Hi ${BUSINESS.operator}, I'd like to book a car detail with ${BUSINESS.name}.`),
+      href: waLink(`Hi ${BUSINESS.name}, I'd like to book a car detail.`),
       external: true,
     },
     {
@@ -112,7 +112,7 @@ export default function Contact() {
     {
       icon: <Facebook className="w-5 h-5" />,
       title: 'Facebook',
-      detail: 'MR SONS Cleaning Service',
+      detail: BUSINESS.legalName,
       note: 'Recent jobs, before and afters, and every customer recommendation.',
       href: BUSINESS.facebook,
       external: true,

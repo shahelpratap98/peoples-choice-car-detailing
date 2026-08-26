@@ -2,7 +2,6 @@ import { motion } from 'motion/react'
 import { Clock, MapPin, MessageSquare, ShieldCheck } from 'lucide-react'
 import { BUSINESS } from '../config'
 import { SectionEyebrow, gradientStyle } from '../components/Primitives'
-import Reviews from '../components/Reviews'
 import FinalCTA from '../components/FinalCTA'
 
 const EASE = [0.22, 1, 0.36, 1] as const
@@ -33,14 +32,14 @@ const PRINCIPLES = [
 const STATS = [
   { value: '3+ hrs', label: 'Typical time on a full detail' },
   { value: '7 days', label: 'Bookings taken every day of the week' },
-  { value: 'Auckland', label: 'Mobile across the whole region' },
+  { value: 'Fully mobile', label: 'We bring water and power to you' },
   { value: '8 seaters', label: 'Large vehicles and people movers welcome' },
 ]
 
 const STEPS = [
   {
     n: '01',
-    title: 'Message Janish',
+    title: 'Send a message',
     body: 'WhatsApp, a call or Facebook. Tell us the vehicle, the suburb and roughly what state it is in. A photo helps.',
   },
   {
@@ -82,9 +81,8 @@ export default function About() {
           transition={{ duration: 0.8, delay: 0.3, ease: EASE }}
           className="mt-8 text-white/60 max-w-lg text-base leading-[1.5]"
         >
-          {BUSINESS.legalName} is run by {BUSINESS.operator} — a mobile detailer working across{' '}
-          {BUSINESS.region}. One person, one van, and a habit of spending longer on a car than most
-          people expect.
+          {BUSINESS.legalName} is a mobile detailing outfit. We come to you, and we have a habit of
+          spending longer on a car than most people expect.
         </motion.p>
       </section>
 
@@ -99,7 +97,7 @@ export default function About() {
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.7, ease: EASE }}
           >
-            <SectionEyebrow label="About us" tag={BUSINESS.region} />
+            <SectionEyebrow label="About us" tag="Mobile" />
             <h2 className="mt-5 text-3xl md:text-5xl font-semibold tracking-tight leading-[1.02]">
               A car wash cleans it.
               <br />
@@ -112,7 +110,7 @@ export default function About() {
                 seat rails are still full of grit and the boot still smells like the dog.
               </p>
               <p>
-                {BUSINESS.operator} works the other way round. The seats come forward, the mats come
+                We work the other way round. The seats come forward, the mats come
                 out, the third row gets the same treatment as the driver&rsquo;s seat, and the paint
                 gets a proper two-bucket contact wash instead of a machine full of somebody
                 else&rsquo;s dirt.
@@ -199,7 +197,6 @@ export default function About() {
         </div>
       </section>
 
-      <Reviews />
       <FinalCTA />
     </>
   )

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { PACKAGES } from '../data/services'
-import { waLink } from '../config'
+import { BUSINESS, waLink } from '../config'
 import { PricingNoiseFilter } from './Primitives'
 
 function Check() {
@@ -23,7 +23,7 @@ export default function Packages() {
       <div className="c3-watermark-container">
         <div className="c3-watermark-main">
           <span className="c3-watermark-line-1">Your car.</span>
-          <span className="c3-watermark-line-2">Revitalized</span>
+          <span className="c3-watermark-line-2">Refinished.</span>
         </div>
         <p className="mt-6 text-sm text-white/50 max-w-md mx-auto leading-[1.6]">
           Three ways to book. Times shown are hours on the tools at your place — the van carries its
@@ -52,7 +52,7 @@ export default function Packages() {
             <a
               className="c3-btn"
               href={waLink(
-                `Hi Janish, I'd like to book the ${p.tier} package with MR SONS. My vehicle is a `,
+                `Hi ${BUSINESS.name}, I'd like to book the ${p.tier} package. My vehicle is a `,
               )}
               target="_blank"
               rel="noopener noreferrer"
@@ -80,7 +80,7 @@ export default function Packages() {
       </div>
 
       <p className="mt-6 text-xs text-white/40 max-w-md text-center">
-        {/* TODO(launch): swap this line for real pricing once Janish confirms his rates. */}
+        {/* TODO(launch): swap this line for real pricing once the rates are confirmed. */}
         Pricing depends on vehicle size and condition. Send a photo on WhatsApp and you&rsquo;ll get a
         fixed quote back before anything is booked.
       </p>

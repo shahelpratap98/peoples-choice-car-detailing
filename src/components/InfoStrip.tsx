@@ -3,7 +3,7 @@ import { Phone } from 'lucide-react'
 import { BUSINESS } from '../config'
 import { LogoMark } from './Primitives'
 
-const ITEMS = ['Mobile service', 'We come to you', 'Auckland wide', 'Own water & power', '7 days a week']
+const ITEMS = ['Mobile service', 'We come to you', 'Own water & power', '7 days a week']
 
 /**
  * Thin full-bleed status strip. Same construction as the macOS menu bar in the
@@ -20,7 +20,7 @@ export default function InfoStrip() {
       <div className="max-w-6xl mx-auto px-6 h-full flex items-center justify-between text-xs">
         <div className="flex items-center gap-4">
           <LogoMark className="w-3.5 h-3.5 text-white" />
-          <span className="font-bold text-white">MR SONS</span>
+          <span className="font-bold text-white">{BUSINESS.name}</span>
           {ITEMS.map((item, i) => (
             <span
               key={item}

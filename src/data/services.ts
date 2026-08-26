@@ -16,13 +16,13 @@ import {
 /**
  * NOTE ON SOURCING
  * ----------------
- * The MR SONS Facebook page is login-walled, so its service list could not be
+ * The Soft Touch Facebook page is login-walled, so its service list could not be
  * read programmatically. Everything below is built from what the public
  * recommendations on that page actually evidence — mobile service, 2–3.5 hour
  * full cleans, dog hair and odour removal, 7 and 8 seaters — plus the standard
  * scope of a NZ mobile detailing job.
  *
- * TODO(launch): have Janish confirm this list and add real prices.
+ * TODO(launch): have the owner confirm this list and add real prices.
  */
 
 export type Service = {
@@ -173,7 +173,7 @@ export type Package = {
 /**
  * TODO(launch): prices are deliberately absent — none were available from the
  * Facebook page, and quoting a real business's rates without confirmation would
- * be misleading. Add a `price` field here once Janish confirms them.
+ * be misleading. Add a `price` field here once the owner confirms them.
  */
 export const PACKAGES: Package[] = [
   {

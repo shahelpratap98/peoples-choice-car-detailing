@@ -4,26 +4,38 @@
  */
 
 export const BUSINESS = {
-  name: 'MR SONS',
-  legalName: 'MR SONS Cleaning Service',
-  trading: 'MR SONS Car Detailing',
-  operator: 'Janish',
+  name: 'Soft Touch',
+  legalName: 'Soft Touch Auto Finishing',
+  trading: 'Soft Touch Auto Finishing',
 
-  // Verified — printed on the company logo.
-  phoneDisplay: '022 510 4885',
-  phoneTel: '+64225104885',
-  whatsappNumber: '64225104885', // wa.me format: country code, no +, no spaces
+  /* ------------------------------------------------------------------ */
+  /*  TODO(launch): EVERY FIELD IN THIS BLOCK IS A PLACEHOLDER.         */
+  /*                                                                    */
+  /*  The Facebook page is login-walled, so none of it could be read    */
+  /*  from the source. Nothing here has been verified against the       */
+  /*  business. Confirm all of it before this site is pointed at a      */
+  /*  domain or shown to a customer.                                    */
+  /* ------------------------------------------------------------------ */
 
-  // TODO(launch): CONFIRM WITH JANISH BEFORE GOING LIVE.
-  // This address is a placeholder — it has not been verified against the business.
-  email: 'mrsonscardetailing@gmail.com',
+  phoneDisplay: '021 000 0000',
+  phoneTel: '+64210000000',
+  whatsappNumber: '64210000000', // wa.me format: country code, no +, no spaces
+  email: 'hello@softtouchautofinishing.co.nz',
+
+  // The country is an assumption too. NZ formatting is used above only
+  // because that is where the other sites in this account operate.
+
+  /* ------------------------------------------------------------------ */
 
   // Verified — the page supplied in the brief.
-  facebook: 'https://www.facebook.com/MRsonscardetailing',
+  facebook: 'https://www.facebook.com/profile.php?id=100083261346551',
 
-  region: 'Auckland',
-  serviceArea: 'Mobile — greater Auckland',
-  hours: 'Mon – Sun · 7am – 7pm',
+  // Deliberately not naming a city or region anywhere on the site: the
+  // location is unknown, and asserting the wrong one is worse than saying
+  // nothing. The copy is written to work without it. Add a `region` field
+  // and wire it into InfoStrip / Contact / index.html once confirmed.
+  serviceArea: 'Mobile service — we come to you',
+  hours: 'Mon – Sun · 7am – 7pm', // TODO(launch): confirm
 } as const
 
 export const waLink = (message: string) =>
@@ -33,5 +45,4 @@ export const mailLink = (subject: string, body = '') =>
   `mailto:${BUSINESS.email}?subject=${encodeURIComponent(subject)}` +
   (body ? `&body=${encodeURIComponent(body)}` : '')
 
-export const DEFAULT_ENQUIRY =
-  "Hi Janish, I'd like to book a car detail with MR SONS. My vehicle is a "
+export const DEFAULT_ENQUIRY = `Hi ${BUSINESS.name}, I'd like to book a detail. My vehicle is a `

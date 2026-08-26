@@ -39,23 +39,27 @@ export function PricingNoiseFilter() {
 /*  Marks                                                                     */
 /* -------------------------------------------------------------------------- */
 
-/** Car profile + sparkle, echoing the MR SONS Facebook logo. */
+/** Layered swooshes + sparkles, echoing the Soft Touch Auto Finishing logo. */
 export function LogoMark({ className = 'w-8 h-8' }: { className?: string }) {
   return (
     <svg viewBox="0 0 256 256" className={className} aria-hidden="true" focusable="false">
+      {/* roof line */}
       <path
-        d="M 16 158 C 30 158 46 128 76 116 C 106 104 136 102 162 110 C 188 118 216 138 242 150 C 242 158 238 164 230 164 L 28 164 C 20 164 16 161 16 158 Z"
-        fill="currentColor"
+        d="M96 118 C 128 92 168 96 198 124 C 186 121 173 115 159 111 C 135 104 114 107 96 118 Z"
+        fill="#D9430E"
       />
+      {/* gold wedge */}
+      <path d="M150 141 C 170 137 187 133 201 130 C 191 141 174 145 156 147 Z" fill="#F5C518" />
+      {/* aqua swoosh */}
+      <path d="M40 112 C 63 141 105 151 151 139 C 108 155 66 151 40 112 Z" fill="#5BC8DC" />
+      {/* azure wave */}
       <path
-        d="M 74 114 C 102 86 150 86 180 110"
-        fill="none"
-        stroke="#3D81E3"
-        strokeWidth="11"
-        strokeLinecap="round"
+        d="M34 130 C 62 168 118 178 176 160 C 200 153 214 146 226 140 C 208 158 186 170 158 176 C 100 188 52 172 34 130 Z"
+        fill="#2E86DE"
       />
-      <path d="M 206 44 L 215 66 L 237 75 L 215 84 L 206 106 L 197 84 L 175 75 L 197 66 Z" fill="#3D81E3" />
-      <path d="M 166 92 L 171 104 L 183 109 L 171 114 L 166 126 L 161 114 L 149 109 L 161 104 Z" fill="currentColor" />
+      {/* sparkles */}
+      <path d="M186 40 L192 58 L210 64 L192 70 L186 88 L180 70 L162 64 L180 58 Z" fill="#5BC8DC" />
+      <path d="M126 62 L130 74 L142 78 L130 82 L126 94 L122 82 L110 78 L122 74 Z" fill="#2E86DE" />
     </svg>
   )
 }
@@ -69,16 +73,13 @@ export function WhatsAppIcon({ className = 'w-4 h-4' }: { className?: string }) 
   )
 }
 
-/** Stacked "MR SONS / CAR DETAILING" lockup. */
+/** Stacked "Soft Touch / Auto Finishing" lockup. */
 export function Wordmark({ className = '' }: { className?: string }) {
   return (
     <span className={`flex flex-col leading-none ${className}`}>
-      <span className="text-base font-extrabold tracking-tight">
-        <span className="text-white">MR </span>
-        <span className="text-brand">SONS</span>
-      </span>
-      <span className="mt-1 text-[9px] font-semibold uppercase tracking-[0.28em] text-white/40">
-        Car Detailing
+      <span className="text-base font-extrabold tracking-tight text-brand">Soft Touch</span>
+      <span className="mt-1 text-[10px] font-bold uppercase tracking-[0.22em] text-gold">
+        Auto Finishing
       </span>
     </span>
   )
@@ -165,7 +166,7 @@ export function SectionEyebrow({ label, tag }: { label: string; tag?: string }) 
 
 export const gradientStyle: CSSProperties = {
   backgroundImage:
-    'linear-gradient(to right, #091020 0%, #0B2551 12.5%, #A4F4FD 32.5%, #00d2ff 50%, #0B2551 67.5%, #091020 87.5%, #091020 100%)',
+    'linear-gradient(to right, #1B0A02 0%, #7A2408 12.5%, #D9430E 32.5%, #F5C518 50%, #7A2408 67.5%, #1B0A02 87.5%, #1B0A02 100%)',
   backgroundSize: '200% auto',
   WebkitBackgroundClip: 'text',
   backgroundClip: 'text',
