@@ -18,7 +18,7 @@ export default function FinalCTA() {
           style={{
             opacity: 0.3,
             backgroundImage:
-              'radial-gradient(600px circle at 50% 0%, rgba(255,255,255,0.15), transparent 70%)',
+              'radial-gradient(600px circle at 50% 0%, rgba(182,223,245,0.35), transparent 70%)',
           }}
         />
 
@@ -30,8 +30,8 @@ export default function FinalCTA() {
           </h2>
 
           <p className="mt-6 text-white/60 max-w-md mx-auto text-sm leading-[1.6]">
-            Send through your vehicle and your suburb and you&rsquo;ll get a time and a price
-            back — usually the same day. We bring the water, the power and the gear.
+            Send through your vehicle and where you are, and you&rsquo;ll get a quote back.
+            We&rsquo;re mobile across {BUSINESS.region} and surrounding areas — we come to you.
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">

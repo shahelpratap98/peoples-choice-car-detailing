@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Facebook, Mail, MapPin, Phone } from 'lucide-react'
+import { Facebook, Instagram, Mail, MapPin, Phone } from 'lucide-react'
 import { BUSINESS, DEFAULT_ENQUIRY, mailLink, waLink } from '../config'
 import { LogoMark, WhatsAppIcon, Wordmark } from './Primitives'
 
@@ -13,8 +13,8 @@ export default function Footer() {
             <Wordmark />
           </div>
           <p className="mt-5 text-sm text-white/50 leading-[1.6] max-w-xs">
-            {BUSINESS.legalName}. Mobile car detailing — we bring the gear, the water and the
-            power to your driveway.
+            {BUSINESS.legalName}. Quality car grooming and detailing in {BUSINESS.region} — we
+            come to you.
           </p>
         </div>
 
@@ -87,6 +87,17 @@ export default function Footer() {
                 Facebook
               </a>
             </li>
+            <li>
+              <a
+                href={BUSINESS.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 py-2.5 text-white/70 hover:text-white transition-colors"
+              >
+                <Instagram className="w-4 h-4" />
+                Instagram
+              </a>
+            </li>
           </ul>
         </div>
 
@@ -107,7 +118,7 @@ export default function Footer() {
           <p>
             &copy; {new Date().getFullYear()} {BUSINESS.legalName}. All rights reserved.
           </p>
-          <p>{BUSINESS.serviceArea}</p>
+          <p>{BUSINESS.region}, New Zealand</p>
         </div>
       </div>
     </footer>

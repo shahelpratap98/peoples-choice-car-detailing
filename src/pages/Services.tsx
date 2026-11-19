@@ -1,5 +1,5 @@
 import { motion } from 'motion/react'
-import { Check, Facebook } from 'lucide-react'
+import { Check, Facebook, Instagram } from 'lucide-react'
 import { SERVICES } from '../data/services'
 import { BUSINESS, DEFAULT_ENQUIRY, waLink } from '../config'
 import { BrandButton, SectionEyebrow, gradientStyle } from '../components/Primitives'
@@ -30,8 +30,8 @@ export default function Services() {
           transition={{ duration: 0.8, delay: 0.3, ease: EASE }}
           className="mt-8 text-white/60 max-w-lg text-base leading-[1.5]"
         >
-          Book a single job or a full package. Everything below is done at your place, on your
-          driveway, with our own water and power.
+          Book a single job or a full package. Everything below is done at your place, anywhere
+          in {BUSINESS.region} and surrounding areas.
         </motion.p>
 
         <motion.div
@@ -64,27 +64,20 @@ export default function Services() {
                 className="liquid-glass rounded-2xl p-6 flex flex-col scroll-mt-24"
               >
                 <div className="flex items-start justify-between gap-4">
-                  <Icon className="w-6 h-6 text-brand shrink-0" />
-                  {service.featured ? (
-                    <span className="text-[10px] uppercase tracking-widest text-white/70 px-2 py-1 rounded-full border border-white/15">
-                      Most booked
-                    </span>
-                  ) : (
-                    <span className="text-xs text-white/40 tabular-nums">{service.duration}</span>
-                  )}
+                  <Icon className="w-6 h-6 text-powder shrink-0" />
+                  <span className="text-[10px] uppercase tracking-widest text-white/60 px-2 py-1 rounded-full border border-white/15">
+                    {service.tag}
+                  </span>
                 </div>
 
                 <h2 className="mt-5 text-lg font-semibold tracking-tight">{service.title}</h2>
-                {service.featured ? (
-                  <p className="mt-1 text-xs text-white/40 tabular-nums">{service.duration}</p>
-                ) : null}
 
                 <p className="mt-3 text-sm text-white/60 leading-[1.6]">{service.blurb}</p>
 
                 <ul className="mt-5 space-y-2 grow">
                   {service.includes.map((item) => (
                     <li key={item} className="flex items-start gap-2.5 text-xs text-white/70">
-                      <Check className="w-3.5 h-3.5 mt-px shrink-0 text-brand" />
+                      <Check className="w-3.5 h-3.5 mt-px shrink-0 text-powder" />
                       {item}
                     </li>
                   ))}
@@ -119,19 +112,30 @@ export default function Services() {
           <div>
             <h2 className="text-xl font-semibold tracking-tight">See the work as it happens</h2>
             <p className="mt-2 text-sm text-white/60 leading-[1.6] max-w-lg">
-              Before and after shots from recent jobs go straight onto the {BUSINESS.name} Facebook
-              page, along with every customer recommendation.
+              Before and after photos and reels from recent jobs go straight onto the{' '}
+              {BUSINESS.name} Facebook page and Instagram ({BUSINESS.instagramHandle}).
             </p>
           </div>
-          <a
-            href={BUSINESS.facebook}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-white text-black text-sm font-medium px-5 py-3 transition-colors hover:bg-white/90 shrink-0"
-          >
-            <Facebook className="w-4 h-4" />
-            Open Facebook
-          </a>
+          <div className="flex flex-col sm:flex-row gap-3 shrink-0">
+            <a
+              href={BUSINESS.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-white text-black text-sm font-medium px-5 py-3 transition-colors hover:bg-white/90"
+            >
+              <Facebook className="w-4 h-4" />
+              Facebook
+            </a>
+            <a
+              href={BUSINESS.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 text-white text-sm font-medium px-5 py-3 transition-colors hover:bg-white/5"
+            >
+              <Instagram className="w-4 h-4" />
+              Instagram
+            </a>
+          </div>
         </div>
       </section>
 

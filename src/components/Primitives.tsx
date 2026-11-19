@@ -39,27 +39,21 @@ export function PricingNoiseFilter() {
 /*  Marks                                                                     */
 /* -------------------------------------------------------------------------- */
 
-/** Layered swooshes + sparkles, echoing the Soft Touch Auto Finishing logo. */
+/**
+ * Placeholder mark: a detailer's "shine" sparkle in the brand colours.
+ * It is NOT the client's logo — swap in their real artwork when supplied.
+ */
 export function LogoMark({ className = 'w-8 h-8' }: { className?: string }) {
   return (
     <svg viewBox="0 0 256 256" className={className} aria-hidden="true" focusable="false">
-      {/* roof line */}
       <path
-        d="M96 118 C 128 92 168 96 198 124 C 186 121 173 115 159 111 C 135 104 114 107 96 118 Z"
-        fill="#D9430E"
+        d="M112 24 C 120 92 140 112 208 120 C 140 128 120 148 112 216 C 104 148 84 128 16 120 C 84 112 104 92 112 24 Z"
+        fill="#E0091F"
       />
-      {/* gold wedge */}
-      <path d="M150 141 C 170 137 187 133 201 130 C 191 141 174 145 156 147 Z" fill="#F5C518" />
-      {/* aqua swoosh */}
-      <path d="M40 112 C 63 141 105 151 151 139 C 108 155 66 151 40 112 Z" fill="#5BC8DC" />
-      {/* azure wave */}
       <path
-        d="M34 130 C 62 168 118 178 176 160 C 200 153 214 146 226 140 C 208 158 186 170 158 176 C 100 188 52 172 34 130 Z"
-        fill="#2E86DE"
+        d="M200 148 C 204 180 212 188 244 192 C 212 196 204 204 200 236 C 196 204 188 196 156 192 C 188 188 196 180 200 148 Z"
+        fill="#B6DFF5"
       />
-      {/* sparkles */}
-      <path d="M186 40 L192 58 L210 64 L192 70 L186 88 L180 70 L162 64 L180 58 Z" fill="#5BC8DC" />
-      <path d="M126 62 L130 74 L142 78 L130 82 L126 94 L122 82 L110 78 L122 74 Z" fill="#2E86DE" />
     </svg>
   )
 }
@@ -73,13 +67,13 @@ export function WhatsAppIcon({ className = 'w-4 h-4' }: { className?: string }) 
   )
 }
 
-/** Stacked "Soft Touch / Auto Finishing" lockup. */
+/** Stacked "People's Choice / Car Detailing" lockup. */
 export function Wordmark({ className = '' }: { className?: string }) {
   return (
     <span className={`flex flex-col leading-none ${className}`}>
-      <span className="text-base font-extrabold tracking-tight text-brand">Soft Touch</span>
-      <span className="mt-1 text-[10px] font-bold uppercase tracking-[0.22em] text-gold">
-        Auto Finishing
+      <span className="text-base font-extrabold tracking-tight text-white">People&rsquo;s Choice</span>
+      <span className="mt-1 text-[10px] font-bold uppercase tracking-[0.22em] text-powder">
+        Car Detailing
       </span>
     </span>
   )
@@ -90,7 +84,7 @@ export function Wordmark({ className = '' }: { className?: string }) {
 /* -------------------------------------------------------------------------- */
 
 const PILL =
-  'group inline-flex items-center justify-center gap-2 rounded-full bg-white text-black font-medium text-sm px-5 py-3 transition-all hover:bg-white/90 active:scale-[0.98]'
+  'group inline-flex items-center justify-center gap-2 rounded-full bg-brand text-white font-medium text-sm px-5 py-3 transition-all hover:bg-[#c4081b] active:scale-[0.98]'
 
 export function BrandButton({
   label = 'Book on WhatsApp',
@@ -164,9 +158,14 @@ export function SectionEyebrow({ label, tag }: { label: string; tag?: string }) 
 /*  Shiny gradient headline                                                   */
 /* -------------------------------------------------------------------------- */
 
+/**
+ * Poppy red with a powder-blue glint sweeping through. The darkest stop is
+ * #C8081C (3.4:1 on raven) so the headline stays legible at every point of the
+ * animation — it never fades into the background.
+ */
 export const gradientStyle: CSSProperties = {
   backgroundImage:
-    'linear-gradient(to right, #1B0A02 0%, #7A2408 12.5%, #D9430E 32.5%, #F5C518 50%, #7A2408 67.5%, #1B0A02 87.5%, #1B0A02 100%)',
+    'linear-gradient(to right, #C8081C 0%, #E0091F 20%, #E0091F 38%, #B6DFF5 50%, #E0091F 62%, #E0091F 80%, #C8081C 100%)',
   backgroundSize: '200% auto',
   WebkitBackgroundClip: 'text',
   backgroundClip: 'text',

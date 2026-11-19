@@ -4,9 +4,6 @@ import Navbar from './Navbar'
 import Footer from './Footer'
 import { RootNoiseFilter } from './Primitives'
 
-const BACKGROUND_VIDEO =
-  'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260508_064122_c4750c0e-7476-4b44-94a2-a85a65c63bf2.mp4'
-
 function ScrollToTop() {
   const { pathname } = useLocation()
   useEffect(() => {
@@ -17,24 +14,21 @@ function ScrollToTop() {
 
 export default function Layout() {
   return (
-    <div className="relative min-h-screen overflow-x-hidden bg-[#0c0c0c] text-white">
+    <div className="relative min-h-screen overflow-x-hidden bg-raven text-white">
       <ScrollToTop />
       <RootNoiseFilter />
 
-      {/* Fixed cinematic backdrop, behind everything */}
-      <div className="fixed inset-0 z-0 pointer-events-none">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          aria-hidden="true"
-          className="w-full h-full object-cover pointer-events-none"
-          src={BACKGROUND_VIDEO}
+      {/* Fixed ambient backdrop: a powder-blue wash top right and a low poppy
+          glow bottom left, echoing the lighting in the hero photograph. Static
+          gradients only — nothing here animates or loads over the network. */}
+      <div className="fixed inset-0 z-0 pointer-events-none" aria-hidden="true">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              'radial-gradient(min(900px, 120vw) circle at 85% -10%, rgba(182,223,245,0.10), transparent 60%), radial-gradient(min(700px, 90vw) circle at 0% 100%, rgba(224,9,31,0.08), transparent 60%)',
+          }}
         />
-        {/* Scrim keeps body copy at an accessible contrast over moving footage.
-            At 80% even a pure-white video frame leaves text-white/60 at ~4.8:1. */}
-        <div className="absolute inset-0 bg-[#0c0c0c]/80" />
       </div>
 
       {/* Container guide lines */}

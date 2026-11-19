@@ -3,7 +3,7 @@ import { Phone } from 'lucide-react'
 import { BUSINESS } from '../config'
 import { LogoMark } from './Primitives'
 
-const ITEMS = ['Mobile service', 'We come to you', 'Own water & power', '7 days a week']
+const ITEMS = ['Mobile service', 'We come to you', `${BUSINESS.region} & surrounds`, `${BUSINESS.experience} experience`]
 
 /**
  * Thin full-bleed status strip. Same construction as the macOS menu bar in the
@@ -35,7 +35,7 @@ export default function InfoStrip() {
 
         <a
           href={`tel:${BUSINESS.phoneTel}`}
-          className="flex items-center gap-2 text-white/60 hover:text-white transition-colors"
+          className="h-full flex items-center gap-2 text-white/60 hover:text-white transition-colors"
         >
           <Phone className="w-3.5 h-3.5" />
           <span className="tabular-nums">{BUSINESS.phoneDisplay}</span>

@@ -1,61 +1,65 @@
 import { motion } from 'motion/react'
-import { Clock, MapPin, MessageSquare, ShieldCheck } from 'lucide-react'
+import { Award, MapPin, MessageSquare, Sparkles } from 'lucide-react'
 import { BUSINESS } from '../config'
 import { SectionEyebrow, gradientStyle } from '../components/Primitives'
 import FinalCTA from '../components/FinalCTA'
 
 const EASE = [0.22, 1, 0.36, 1] as const
 
+/**
+ * Everything on this page is drawn from the business's own Facebook and
+ * Instagram pages (read 19 Nov 2026). See src/config.ts for the sources.
+ */
 const PRINCIPLES = [
   {
-    icon: Clock,
-    title: 'Time on the tools, not on the clock',
-    body: 'A full detail takes three hours or more because that is how long it takes. Customers regularly note three and three and a half hour jobs — that is the standard, not the exception.',
+    icon: MapPin,
+    title: 'We come to you',
+    body: `A mobile service covering ${BUSINESS.region} and surrounding areas. Home, work or yard — the job happens where the car is.`,
+  },
+  {
+    icon: Award,
+    title: 'More than eight years in the trade',
+    body: 'Over eight years of car grooming and detailing experience goes into every job, from a quick maintenance valet to a full paint correction.',
+  },
+  {
+    icon: Sparkles,
+    title: 'The hard cases are welcome',
+    body: 'Baked-on cement, moss, tar, mould in the hood lining, pet hair, foggy headlights. If it can be brought back, we will bring it back.',
   },
   {
     icon: MessageSquare,
-    title: 'You get a straight answer',
-    body: 'Messages get replied to. Times get confirmed. If something changes you hear about it first, not after you have moved the car out of the garage.',
-  },
-  {
-    icon: MapPin,
-    title: 'We travel to you',
-    body: 'The van carries its own water and power, so the job happens at your house, your office or your yard. No drop-off, no waiting room, no half day gone.',
-  },
-  {
-    icon: ShieldCheck,
-    title: 'Checked before we leave',
-    body: 'Every job ends with a walk around the car together. If something is not right it gets fixed on the spot.',
+    title: 'Quoted before it is booked',
+    body: 'Call, text or message with the vehicle and what it needs, and you get a quote first.',
   },
 ]
 
 const STATS = [
-  { value: '3+ hrs', label: 'Typical time on a full detail' },
-  { value: '7 days', label: 'Bookings taken every day of the week' },
-  { value: 'Fully mobile', label: 'We bring water and power to you' },
-  { value: '8 seaters', label: 'Large vehicles and people movers welcome' },
+  { value: BUSINESS.experience, label: 'Car detailing experience' },
+  { value: BUSINESS.rating, label: 'Rating on Facebook' },
+  { value: BUSINESS.recommend, label: 'Recommend us on Facebook' },
+  { value: 'Mobile', label: `${BUSINESS.region} & surrounding areas` },
 ]
 
 const STEPS = [
   {
     n: '01',
-    title: 'Send a message',
-    body: 'WhatsApp, a call or Facebook. Tell us the vehicle, the suburb and roughly what state it is in. A photo helps.',
+    title: 'Get in touch',
+    body: 'Call, text, WhatsApp or message us on Facebook. Tell us the vehicle, where you are and what it needs. A photo helps.',
   },
   {
     n: '02',
-    title: 'Get a fixed quote',
-    body: 'You get a price and a time back, usually the same day. Nothing is booked until you are happy with both.',
+    title: 'Get a quote',
+    body: 'Every job is quoted on the vehicle and its condition before anything is booked.',
   },
   {
     n: '03',
     title: 'We come to you',
-    body: 'Park it somewhere we can get around it. We bring the water, the power and every bit of gear the job needs.',
+    body: `We are a mobile detailer. The work is done at your place, anywhere in ${BUSINESS.region} and surrounding areas.`,
   },
   {
     n: '04',
-    title: 'Walk around together',
-    body: 'Two to four hours later you look over the car with us in daylight before we pack up.',
+    title: 'Back to its best',
+    body: 'No drop-off and no pick-up. The car is finished where it is parked.',
   },
 ]
 
@@ -69,9 +73,9 @@ export default function About() {
           transition={{ duration: 0.8, delay: 0.15, ease: EASE }}
           className="text-4xl md:text-7xl font-semibold tracking-tight leading-[0.9]"
         >
-          <span className="block text-white">Hard graft.</span>
-          <span className="block animate-shiny" style={gradientStyle}>
-            Done properly
+          <span className="block text-white">Quality service.</span>
+          <span className="block animate-shiny pb-2" style={gradientStyle}>
+            Great results.
           </span>
         </motion.h1>
 
@@ -81,8 +85,8 @@ export default function About() {
           transition={{ duration: 0.8, delay: 0.3, ease: EASE }}
           className="mt-8 text-white/60 max-w-lg text-base leading-[1.5]"
         >
-          {BUSINESS.legalName} is a mobile detailing outfit. We come to you, and we have a habit of
-          spending longer on a car than most people expect.
+          {BUSINESS.legalName} is a locally owned mobile detailer in {BUSINESS.region}, with more
+          than eight years of experience in car grooming and detailing.
         </motion.p>
       </section>
 
@@ -97,27 +101,27 @@ export default function About() {
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.7, ease: EASE }}
           >
-            <SectionEyebrow label="About us" tag="Mobile" />
+            <SectionEyebrow label="About us" tag={BUSINESS.region} />
             <h2 className="mt-5 text-3xl md:text-5xl font-semibold tracking-tight leading-[1.02]">
-              A car wash cleans it.
+              A wash cleans it.
               <br />
               A detail resets it.
             </h2>
             <div className="mt-6 space-y-4 text-white/60 text-base leading-[1.65] max-w-md">
               <p>
-                Most cars have never actually been cleaned. They have been rinsed, run through a
-                brush and vacuumed around the edges — which is why the carpet is still grey, the
-                seat rails are still full of grit and the boot still smells like the dog.
+                We are a mobile car detailer, so the work comes to you — a driveway in Te Kamo, a
+                home in Glenbervie, a workplace in town. The car never has to leave to come back
+                looking its best.
               </p>
               <p>
-                We work the other way round. The seats come forward, the mats come
-                out, the third row gets the same treatment as the driver&rsquo;s seat, and the paint
-                gets a proper two-bucket contact wash instead of a machine full of somebody
-                else&rsquo;s dirt.
+                The jobs range from a maintenance valet that keeps a luxury car in prime condition
+                to bringing a forestry ute back, inside and out. Then there are the awkward ones:
+                baked-on cement, moss, mould in the hood lining, pet hair, and foggy headlights that
+                have failed a WOF.
               </p>
               <p>
-                It takes longer. That is the whole point — and it is the thing customers keep
-                writing about afterwards.
+                What we aim for on every one of them is the same: quality service, satisfied
+                customers and great results.
               </p>
             </div>
           </motion.div>
@@ -134,7 +138,7 @@ export default function About() {
               return (
                 <div key={p.title} className="liquid-glass rounded-2xl p-5">
                   <div className="flex items-center gap-3">
-                    <Icon className="w-5 h-5 text-brand shrink-0" />
+                    <Icon className="w-5 h-5 text-powder shrink-0" />
                     <h3 className="text-sm font-semibold">{p.title}</h3>
                   </div>
                   <p className="mt-3 text-sm text-white/60 leading-[1.6]">{p.body}</p>
@@ -187,7 +191,7 @@ export default function About() {
               transition={{ duration: 0.6, delay: i * 0.08, ease: EASE }}
               className="liquid-glass rounded-2xl p-6"
             >
-              <span className="text-xs font-semibold tracking-widest text-brand tabular-nums">
+              <span className="text-xs font-semibold tracking-widest text-powder tabular-nums">
                 {step.n}
               </span>
               <h3 className="mt-4 text-base font-semibold tracking-tight">{step.title}</h3>

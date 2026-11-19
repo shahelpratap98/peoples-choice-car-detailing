@@ -39,7 +39,7 @@ const LABELS: Record<keyof Fields, string> = {
 /** Turns the form into a plain-text message for WhatsApp or email. */
 function composeMessage(f: Fields) {
   const lines = [
-    `Hi ${BUSINESS.name}, I'd like to book a detail.`,
+    `Hi ${BUSINESS.name}, I'd like a quote for a detail.`,
     '',
     `Name: ${f.name}`,
     `Phone: ${f.phone}`,
@@ -89,15 +89,15 @@ export default function Contact() {
       icon: <WhatsAppIcon className="w-5 h-5" />,
       title: 'WhatsApp',
       detail: BUSINESS.phoneDisplay,
-      note: 'Fastest — send a photo of the car and get a quote back.',
-      href: waLink(`Hi ${BUSINESS.name}, I'd like to book a car detail.`),
+      note: 'Send a photo of the car and what it needs for a quote.',
+      href: waLink(`Hi ${BUSINESS.name}, I'd like a quote for a car detail.`),
       external: true,
     },
     {
       icon: <Phone className="w-5 h-5" />,
       title: 'Call or text',
       detail: BUSINESS.phoneDisplay,
-      note: 'If we are on a job, leave a message and we will ring back.',
+      note: 'Call or text for a quote, or to book your spot.',
       href: `tel:${BUSINESS.phoneTel}`,
       external: false,
     },
@@ -105,7 +105,7 @@ export default function Contact() {
       icon: <Mail className="w-5 h-5" />,
       title: 'Email',
       detail: BUSINESS.email,
-      note: 'Best for fleet work, invoices and anything that needs a paper trail.',
+      note: 'For fleet enquiries, or anything that needs more detail.',
       href: mailLink('Car detailing enquiry'),
       external: false,
     },
@@ -113,7 +113,7 @@ export default function Contact() {
       icon: <Facebook className="w-5 h-5" />,
       title: 'Facebook',
       detail: BUSINESS.legalName,
-      note: 'Recent jobs, before and afters, and every customer recommendation.',
+      note: 'Before and after photos from recent jobs, and Messenger.',
       href: BUSINESS.facebook,
       external: true,
     },
@@ -140,8 +140,8 @@ export default function Contact() {
           transition={{ duration: 0.8, delay: 0.3, ease: EASE }}
           className="mt-8 text-white/60 max-w-md text-base leading-[1.5]"
         >
-          Tell us the vehicle and the suburb and you will get a time and a fixed price back — usually
-          the same day.
+          Tell us the vehicle and where you are, and you will get a quote back. We are mobile
+          across {BUSINESS.region} and surrounding areas.
         </motion.p>
       </section>
 
@@ -161,7 +161,7 @@ export default function Contact() {
               transition={{ duration: 0.6, delay: i * 0.07, ease: EASE }}
               className="liquid-glass rounded-2xl p-6 block transition-transform hover:-translate-y-1"
             >
-              <span className="text-brand inline-flex">{c.icon}</span>
+              <span className="text-powder inline-flex">{c.icon}</span>
               <h2 className="mt-4 text-base font-semibold tracking-tight">{c.title}</h2>
               <p className="mt-1 text-sm text-white/80 break-all">{c.detail}</p>
               <p className="mt-3 text-xs text-white/50 leading-[1.5]">{c.note}</p>
@@ -234,7 +234,7 @@ export default function Contact() {
                 onChange={set('vehicle')}
                 error={errors.vehicle}
                 hint="Make, model and roughly how many seats."
-                placeholder="2018 Mazda CX-5"
+                placeholder="2019 Mitsubishi ASX"
               />
               <Field
                 id="suburb"
@@ -244,7 +244,7 @@ export default function Contact() {
                 onChange={set('suburb')}
                 error={errors.suburb}
                 autoComplete="address-level2"
-                placeholder="Papakura"
+                placeholder="Kensington"
               />
             </div>
 
@@ -256,7 +256,7 @@ export default function Contact() {
                 id="service"
                 value={fields.service}
                 onChange={(e) => set('service')(e.target.value)}
-                className="mt-2 w-full min-h-[44px] rounded-lg border border-white/10 bg-white/[0.04] px-3 py-2.5 text-sm text-white outline-none transition-colors focus:border-brand"
+                className="mt-2 w-full min-h-[44px] rounded-lg border border-white/10 bg-white/[0.04] px-3 py-2.5 text-sm text-white outline-none transition-colors focus:border-powder"
               >
                 <option className="bg-[#111]">Not sure yet</option>
                 {SERVICES.map((s) => (
@@ -277,7 +277,7 @@ export default function Contact() {
                 value={fields.notes}
                 onChange={(e) => set('notes')(e.target.value)}
                 placeholder="Dog hair in the boot, coffee on the back seat, needs doing before Friday…"
-                className="mt-2 w-full rounded-lg border border-white/10 bg-white/[0.04] px-3 py-2.5 text-sm text-white placeholder:text-white/30 outline-none transition-colors focus:border-brand resize-y"
+                className="mt-2 w-full rounded-lg border border-white/10 bg-white/[0.04] px-3 py-2.5 text-sm text-white placeholder:text-white/30 outline-none transition-colors focus:border-powder resize-y"
               />
               <p className="mt-2 text-xs text-white/40">
                 Stains, pet hair or a deadline — the more we know, the tighter the quote.
@@ -287,7 +287,7 @@ export default function Contact() {
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
               <button
                 type="submit"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-white text-black font-medium text-sm px-5 py-3 transition-all hover:bg-white/90 active:scale-[0.98] cursor-pointer grow"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-brand text-white font-medium text-sm px-5 py-3 transition-all hover:bg-[#c4081b] active:scale-[0.98] cursor-pointer grow"
               >
                 <WhatsAppIcon />
                 Send on WhatsApp
@@ -342,7 +342,7 @@ function Field({
       <label htmlFor={id} className="block text-xs font-medium text-white/70">
         {label}
         {required ? (
-          <span className="text-brand" aria-hidden="true">
+          <span className="text-powder" aria-hidden="true">
             {' '}
             *
           </span>
@@ -358,7 +358,7 @@ function Field({
         aria-invalid={error ? true : undefined}
         aria-describedby={describedBy || undefined}
         onChange={(e) => onChange(e.target.value)}
-        className={`mt-2 w-full min-h-[44px] rounded-lg border bg-white/[0.04] px-3 py-2.5 text-sm text-white placeholder:text-white/30 outline-none transition-colors focus:border-brand ${
+        className={`mt-2 w-full min-h-[44px] rounded-lg border bg-white/[0.04] px-3 py-2.5 text-sm text-white placeholder:text-white/30 outline-none transition-colors focus:border-powder ${
           error ? 'border-red-400' : 'border-white/10'
         }`}
       />
