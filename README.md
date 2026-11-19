@@ -68,8 +68,16 @@ The client's chosen three-colour palette, defined in `tailwind.config.js`:
 | `powder` | `#B6DFF5` | Small accents, icons, eyebrows, the headline glint (15:1 on raven) |
 | `brand` | `#E0091F` | Poppy red — buttons, large headline type, the logo mark |
 
-Poppy red is 4.1:1 on raven, so it is **not used for small text**. White on
-poppy (buttons) is 5.0:1.
+Poppy red is 4.1:1 on raven and 3.5:1 on powder, so it is **not used for small
+text** on either ground. White on poppy (buttons, the info strip) is 5.0:1 and
+raven on powder is 14:1.
+
+The page alternates two grounds, after the client's reference board: black
+(hero, page headers, packages, footer) and full-width powder-blue bands (the
+first content section of every page, plus the call-to-action block). On a blue
+band, type is raven, cards are solid raven, and icons and second headline lines
+are poppy. The info strip under the home hero is solid poppy. `SectionEyebrow`
+and `GhostButton` take `tone="light"` for use on blue.
 
 ## Deploying
 

@@ -43,16 +43,24 @@ export function PricingNoiseFilter() {
  * Placeholder mark: a detailer's "shine" sparkle in the brand colours.
  * It is NOT the client's logo — swap in their real artwork when supplied.
  */
-export function LogoMark({ className = 'w-8 h-8' }: { className?: string }) {
+export function LogoMark({
+  className = 'w-8 h-8',
+  primary = '#E0091F',
+  accent = '#B6DFF5',
+}: {
+  className?: string
+  primary?: string
+  accent?: string
+}) {
   return (
     <svg viewBox="0 0 256 256" className={className} aria-hidden="true" focusable="false">
       <path
         d="M112 24 C 120 92 140 112 208 120 C 140 128 120 148 112 216 C 104 148 84 128 16 120 C 84 112 104 92 112 24 Z"
-        fill="#E0091F"
+        fill={primary}
       />
       <path
         d="M200 148 C 204 180 212 188 244 192 C 212 196 204 204 200 236 C 196 204 188 196 156 192 C 188 188 196 180 200 148 Z"
-        fill="#B6DFF5"
+        fill={accent}
       />
     </svg>
   )
@@ -116,20 +124,25 @@ export function GhostButton({
   href,
   icon,
   full = false,
+  tone = 'dark',
 }: {
   label: string
   href: string
   icon?: ReactNode
   full?: boolean
+  /** `light` when the button sits on a powder-blue ground. */
+  tone?: 'dark' | 'light'
 }) {
   const external = href.startsWith('http')
   return (
     <a
       href={href}
       {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-      className={`group inline-flex items-center justify-center gap-2 rounded-full border border-white/15 text-white text-sm font-medium px-5 py-3 transition-all hover:bg-white/5 active:scale-[0.98] ${
-        full ? 'w-full' : ''
-      }`}
+      className={`group inline-flex items-center justify-center gap-2 rounded-full border text-sm font-medium px-5 py-3 transition-all active:scale-[0.98] ${
+        tone === 'light'
+          ? 'border-raven/25 text-raven hover:bg-raven/5'
+          : 'border-white/15 text-white hover:bg-white/5'
+      } ${full ? 'w-full' : ''}`}
     >
       {icon}
       <span>{label}</span>
@@ -142,13 +155,33 @@ export function GhostButton({
 /*  Section eyebrow                                                           */
 /* -------------------------------------------------------------------------- */
 
-export function SectionEyebrow({ label, tag }: { label: string; tag?: string }) {
+export function SectionEyebrow({
+  label,
+  tag,
+  tone = 'dark',
+}: {
+  label: string
+  tag?: string
+  /** `light` when the eyebrow sits on a powder-blue ground. */
+  tone?: 'dark' | 'light'
+}) {
+  const light = tone === 'light'
   return (
-    <div className="flex items-center gap-2 text-xs font-medium text-white/70">
-      <span className="w-1.5 h-1.5 rounded-full bg-white" />
+    <div
+      className={`flex items-center gap-2 text-xs font-medium ${
+        light ? 'text-raven/80' : 'text-white/70'
+      }`}
+    >
+      <span className="w-1.5 h-1.5 rounded-full bg-brand" />
       <span>{label}</span>
       {tag ? (
-        <span className="px-2 py-0.5 rounded-full border border-white/10 text-white/50">{tag}</span>
+        <span
+          className={`px-2 py-0.5 rounded-full border ${
+            light ? 'border-raven/25 text-raven/70' : 'border-white/10 text-white/50'
+          }`}
+        >
+          {tag}
+        </span>
       ) : null}
     </div>
   )

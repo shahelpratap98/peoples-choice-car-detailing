@@ -93,6 +93,8 @@ export default function About() {
       {/* ------------------------------------------------------------------ */}
       {/* Story                                                               */}
       {/* ------------------------------------------------------------------ */}
+      {/* Powder-blue band: black type, solid black cards, red accents. */}
+      <div className="bg-powder text-raven">
       <section className="max-w-6xl mx-auto px-6 py-16 md:py-24">
         <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-start">
           <motion.div
@@ -101,13 +103,13 @@ export default function About() {
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.7, ease: EASE }}
           >
-            <SectionEyebrow label="About us" tag={BUSINESS.region} />
+            <SectionEyebrow label="About us" tag={BUSINESS.region} tone="light" />
             <h2 className="mt-5 text-3xl md:text-5xl font-semibold tracking-tight leading-[1.02]">
               A wash cleans it.
               <br />
-              A detail resets it.
+              <span className="text-brand">A detail resets it.</span>
             </h2>
-            <div className="mt-6 space-y-4 text-white/60 text-base leading-[1.65] max-w-md">
+            <div className="mt-6 space-y-4 text-raven/75 text-base leading-[1.65] max-w-md">
               <p>
                 We are a mobile car detailer, so the work comes to you — a driveway in Te Kamo, a
                 home in Glenbervie, a workplace in town. The car never has to leave to come back
@@ -136,18 +138,22 @@ export default function About() {
             {PRINCIPLES.map((p) => {
               const Icon = p.icon
               return (
-                <div key={p.title} className="liquid-glass rounded-2xl p-5">
+                <div
+                  key={p.title}
+                  className="bg-raven text-white rounded-2xl p-5 shadow-xl shadow-raven/20"
+                >
                   <div className="flex items-center gap-3">
-                    <Icon className="w-5 h-5 text-powder shrink-0" />
+                    <Icon className="w-5 h-5 text-brand shrink-0" />
                     <h3 className="text-sm font-semibold">{p.title}</h3>
                   </div>
-                  <p className="mt-3 text-sm text-white/60 leading-[1.6]">{p.body}</p>
+                  <p className="mt-3 text-sm text-white/70 leading-[1.6]">{p.body}</p>
                 </div>
               )
             })}
           </motion.div>
         </div>
       </section>
+      </div>
 
       {/* ------------------------------------------------------------------ */}
       {/* Stats                                                               */}

@@ -47,8 +47,9 @@ export default function Services() {
       {/* ------------------------------------------------------------------ */}
       {/* Full service list                                                   */}
       {/* ------------------------------------------------------------------ */}
-      <section className="max-w-6xl mx-auto px-6 py-16 md:py-20">
-        <SectionEyebrow label="Services" tag={`${SERVICES.length} in total`} />
+      <div className="bg-powder text-raven">
+      <section className="max-w-6xl mx-auto px-6 py-16 md:py-24">
+        <SectionEyebrow label="Services" tag={`${SERVICES.length} in total`} tone="light" />
 
         <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {SERVICES.map((service, i) => {
@@ -61,10 +62,10 @@ export default function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-60px' }}
                 transition={{ duration: 0.6, delay: (i % 3) * 0.08, ease: EASE }}
-                className="liquid-glass rounded-2xl p-6 flex flex-col scroll-mt-24"
+                className="bg-raven text-white rounded-2xl p-6 flex flex-col scroll-mt-24 shadow-xl shadow-raven/20"
               >
                 <div className="flex items-start justify-between gap-4">
-                  <Icon className="w-6 h-6 text-powder shrink-0" />
+                  <Icon className="w-6 h-6 text-brand shrink-0" />
                   <span className="text-[10px] uppercase tracking-widest text-white/60 px-2 py-1 rounded-full border border-white/15">
                     {service.tag}
                   </span>
@@ -98,6 +99,7 @@ export default function Services() {
           })}
         </div>
       </section>
+      </div>
 
       {/* ------------------------------------------------------------------ */}
       {/* Packages                                                            */}

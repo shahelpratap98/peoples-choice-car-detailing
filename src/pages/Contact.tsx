@@ -148,7 +148,8 @@ export default function Contact() {
       {/* ------------------------------------------------------------------ */}
       {/* Channels                                                            */}
       {/* ------------------------------------------------------------------ */}
-      <section className="max-w-6xl mx-auto px-6 py-10">
+      <div className="bg-powder text-raven">
+      <section className="max-w-6xl mx-auto px-6 py-14 md:py-20">
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {CHANNELS.map((c, i) => (
             <motion.a
@@ -159,9 +160,9 @@ export default function Contact() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.6, delay: i * 0.07, ease: EASE }}
-              className="liquid-glass rounded-2xl p-6 block transition-transform hover:-translate-y-1"
+              className="bg-raven text-white rounded-2xl p-6 block shadow-xl shadow-raven/20 transition-transform hover:-translate-y-1"
             >
-              <span className="text-powder inline-flex">{c.icon}</span>
+              <span className="text-brand inline-flex">{c.icon}</span>
               <h2 className="mt-4 text-base font-semibold tracking-tight">{c.title}</h2>
               <p className="mt-1 text-sm text-white/80 break-all">{c.detail}</p>
               <p className="mt-3 text-xs text-white/50 leading-[1.5]">{c.note}</p>
@@ -169,6 +170,7 @@ export default function Contact() {
           ))}
         </div>
       </section>
+      </div>
 
       {/* ------------------------------------------------------------------ */}
       {/* Form                                                                */}

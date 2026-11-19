@@ -15,16 +15,16 @@ export default function InfoStrip() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6, delay: 0.9, ease: 'easeOut' }}
-      className="relative z-10 h-10 bg-black/40 backdrop-blur-md border-t border-b border-white/10"
+      className="relative z-10 h-10 bg-brand"
     >
       <div className="max-w-6xl mx-auto px-6 h-full flex items-center justify-between text-xs">
         <div className="flex items-center gap-4">
-          <LogoMark className="w-3.5 h-3.5 text-white" />
+          <LogoMark className="w-3.5 h-3.5" primary="#ffffff" accent="#080402" />
           <span className="font-bold text-white">{BUSINESS.name}</span>
           {ITEMS.map((item, i) => (
             <span
               key={item}
-              className={`text-white/60 ${i > 1 ? 'hidden sm:inline' : ''} ${
+              className={`text-white ${i > 1 ? 'hidden sm:inline' : ''} ${
                 i > 2 ? 'hidden md:inline' : ''
               }`}
             >
@@ -35,7 +35,7 @@ export default function InfoStrip() {
 
         <a
           href={`tel:${BUSINESS.phoneTel}`}
-          className="h-full flex items-center gap-2 text-white/60 hover:text-white transition-colors"
+          className="h-full flex items-center gap-2 font-semibold text-white hover:underline underline-offset-4"
         >
           <Phone className="w-3.5 h-3.5" />
           <span className="tabular-nums">{BUSINESS.phoneDisplay}</span>
